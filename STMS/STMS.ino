@@ -26,10 +26,10 @@ DallasTemperature sensors(&oneWire);
 
 // LED Pins
 const int greenLED = 2; // Tank full
-const int redLED = 14;  // Tank empty
+const int redLED = 4;  // Tank empty
 
 // Tank height constant
-const int tankHeightCM = 15; // Height of the tank in cm
+const int tankHeightCM = 20; // Height of the tank in cm
 
 // Timing variables for non-blocking delay
 unsigned long previousMillis = 0;
@@ -82,7 +82,7 @@ void loop() {
     Serial.println(" °C");
 
     // Update LED Status
-    if (tankCapacity >= 90) {
+    if (tankCapacity >= 80) {
       digitalWrite(greenLED, HIGH);
       digitalWrite(redLED, LOW);
     } else if (tankCapacity <= 10) {
